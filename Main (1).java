@@ -1,69 +1,130 @@
 import java.util.Scanner;
+
+// Custom Exception Class
+class InvalidBookingException extends Exception {
+    public InvalidBookingException(String message) {
+        super(message);
+    }
+}
+
+// Supporting Placeholder Classes
+class Rider {
+    private String name, id;
+    public Rider(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+
+class Driver {
+    private String name, id;
+    public Driver(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+
+abstract class Vehicle {
+    protected String vehicleId;
+    public Vehicle(String vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+    public abstract double getRate();
+}
+
+class Bike extends Vehicle {
+    public Bike(String vehicleId) { super(vehicleId); }
+    @Override public double getRate() { return 10.0; }
+}
+
+class Auto extends Vehicle {
+    public Auto(String vehicleId) { super(vehicleId); }
+    @Override public double getRate() { return 15.0; }
+}
+
+class Cab extends Vehicle {
+    public Cab(String vehicleId) { super(vehicleId); }
+    @Override public double getRate() { return 20.0; }
+}
+
+class Trip {
+    private Rider rider;
+    private Driver driver;
+    private Vehicle vehicle;
+    private double distance;
+
+    public Trip(Rider rider, Driver driver, Vehicle vehicle, double distance) {
+        this.rider = rider;
+        this.driver = driver;
+        this.vehicle = vehicle;
+        this.distance = distance;
+    }
+
+    public double getFare() {
+        return distance * vehicle.getRate();
+    }
+}
+
 public class Main {
-    static void computeLPS(String pattern, int[] lps) {
-        int len = 0;
-        int i = 1;
-
-        lps[0] = 0;
-
-        while (i < pattern.length()) {
-
-            if (pattern.charAt(i) == pattern.charAt(len)) {
-                len++;
-                lps[i] = len;
-                i++;
-            } else {
-                if (len != 0) {
-                    len = lps[len - 1];
-                } else {
-                    lps[i] = 0;
-                    i++;
-                }
-            }
-        }
-    }
-
-    static void KMPSearch(String text, String pattern) {
-
-        int n = text.length();
-        int m = pattern.length();
-
-        int[] lps = new int[m];
-
-        computeLPS(pattern, lps);
-
-        int i = 0;
-        int j = 0;
-
-        while (i < n) {
-
-            if (text.charAt(i) == pattern.charAt(j)) {
-                i++;
-                j++;
-            }
-
-            if (j == m) {
-                System.out.print((i - j) + " ");
-                j = lps[j - 1];
-            }
-            else if (i < n && text.charAt(i) != pattern.charAt(j)) {
-
-                if (j != 0)
-                    j = lps[j - 1];
-                else
-                    i++;
-            }
-        }
-    }
-
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
-        String text = sc.nextLine();
-        String pattern = sc.nextLine();
+        try {
+            int n = sc.nextInt();
 
-        KMPSearch(text, pattern);
+            if (n < 1 || n > 100000) {
+                throw new InvalidBookingException(
+                    "Number of trips must be between 1 and 100000"
+                );
+            }
+
+            Rider rider = new Rider("Rider1", "R001");
+            Driver driver = new Driver("Driver1", "D001");
+
+            for (int i = 0; i < n; i++) {
+                String rideType = sc.next();
+                double distance = sc.nextDouble();
+
+                if (distance <= 0) {
+                    throw new InvalidBookingException(
+                        "Distance must be greater than zero"
+                    );
+                }
+
+                Vehicle vehicle;
+
+                // Polymorphism
+                switch (rideType.toLowerCase()) {
+                    case "bike":
+                        vehicle = new Bike("B101");
+                        break;
+                    case "auto":
+                        vehicle = new Auto("A101");
+                        break;
+                    case "cab":
+                        vehicle = new Cab("C101");
+                        break;
+                    default:
+                        throw new InvalidBookingException(
+                            "Invalid ride type: " + rideType
+                        );
+                }
+
+                Trip trip = new Trip(
+                    rider, driver, vehicle, distance
+                );
+
+                System.out.println(
+                    (int) trip.getFare()
+                );
+            }
+
+        } catch (InvalidBookingException e) {
+            System.out.println("Booking Error: " + e.getMessage());
+
+        } catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
 
         sc.close();
     }
