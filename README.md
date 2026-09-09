@@ -6,6 +6,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0724-find-pivot-index](https://github.com/vtu27991-pixel/pst-lab/tree/master/0724-find-pivot-index) |
 | [0977-squares-of-a-sorted-array](https://github.com/vtu27991-pixel/pst-lab/tree/master/0977-squares-of-a-sorted-array) |
+| [1470-shuffle-the-array](https://github.com/vtu27991-pixel/pst-lab/tree/master/1470-shuffle-the-array) |
 | [1920-build-array-from-permutation](https://github.com/vtu27991-pixel/pst-lab/tree/master/1920-build-array-from-permutation) |
 ## Two Pointers
 |  |
