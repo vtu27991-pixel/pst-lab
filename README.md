@@ -6,6 +6,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/vtu27991-pixel/pst-lab/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0027-remove-element](https://github.com/vtu27991-pixel/pst-lab/tree/master/0027-remove-element) |
+| [0049-group-anagrams](https://github.com/vtu27991-pixel/pst-lab/tree/master/0049-group-anagrams) |
 | [0053-maximum-subarray](https://github.com/vtu27991-pixel/pst-lab/tree/master/0053-maximum-subarray) |
 | [0724-find-pivot-index](https://github.com/vtu27991-pixel/pst-lab/tree/master/0724-find-pivot-index) |
 | [0977-squares-of-a-sorted-array](https://github.com/vtu27991-pixel/pst-lab/tree/master/0977-squares-of-a-sorted-array) |
@@ -21,6 +22,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Sorting
 |  |
 | ------- |
+| [0049-group-anagrams](https://github.com/vtu27991-pixel/pst-lab/tree/master/0049-group-anagrams) |
 | [0977-squares-of-a-sorted-array](https://github.com/vtu27991-pixel/pst-lab/tree/master/0977-squares-of-a-sorted-array) |
 ## Prefix Sum
 |  |
@@ -39,4 +41,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0053-maximum-subarray](https://github.com/vtu27991-pixel/pst-lab/tree/master/0053-maximum-subarray) |
+## Hash Table
+|  |
+| ------- |
+| [0049-group-anagrams](https://github.com/vtu27991-pixel/pst-lab/tree/master/0049-group-anagrams) |
+## String
+|  |
+| ------- |
+| [0049-group-anagrams](https://github.com/vtu27991-pixel/pst-lab/tree/master/0049-group-anagrams) |
 <!---LeetCode Topics End-->
